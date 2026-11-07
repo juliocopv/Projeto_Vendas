@@ -1,0 +1,12 @@
+dbt_ecommerce:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: postgres
+      password: "{{ env_var('db_senha') }}"
+      dbname: dw_ecommerce
+      schema: silver
+      threads: 1

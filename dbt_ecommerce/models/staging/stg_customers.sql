@@ -7,5 +7,5 @@ SELECT
         AS customer_zip_code_prefix,
     LOWER(TRIM(customer_city)) AS customer_city,
     UPPER(TRIM(customer_state)) AS customer_state
-FROM bronze.customers
+FROM {{ source('olist', 'customers') }}
 WHERE customer_id IS NOT NULL

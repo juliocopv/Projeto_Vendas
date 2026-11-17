@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='view')  }}
 
 SELECT 
 	TRIM(product_id) AS product_id,
@@ -10,5 +10,5 @@ SELECT
 	CAST(product_length_cm AS INT) AS product_length_cm,
 	CAST(product_height_cm AS INT) AS product_height_cm,
 	CAST(product_width_cm AS INT) AS product_width_cm
-FROM bronze.products
+FROM {{ source('olist', 'products')}}
 WHERE product_id IS NOT NULL

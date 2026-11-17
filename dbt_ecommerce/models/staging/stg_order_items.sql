@@ -8,6 +8,6 @@ SELECT
 	CAST(shipping_limit_date AS TIMESTAMP) AS shipping_limit_date,
 	CAST(price AS NUMERIC(12,2)) AS price,
 	CAST(freight_value AS NUMERIC(12,2)) AS freight_value
-FROM bronze.order_items
+FROM {{ source('olist', 'order_items') }}
 WHERE order_id IS NOT NULL
 AND product_id IS NOT NULL

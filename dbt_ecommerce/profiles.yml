@@ -3,7 +3,7 @@ dbt_ecommerce:
   outputs:
     dev:
       type: postgres
-      host: localhost
+      host: host.docker.internal
       port: 5432
       user: postgres
       password: "{{ env_var('db_senha') }}"
